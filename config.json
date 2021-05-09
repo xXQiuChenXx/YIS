@@ -1,0 +1,9 @@
+{
+    "prefix": "&",
+    "command": "whitelist add %player%",
+    "api": "https://api.xinrui.tk/",
+    "BotChannel": "724030449717870634",
+    "WhitelistChannel": "730751723437555714",
+    "WhitelistConsole": "710807622890029067",
+    "ConsoleChannel": "751885973557739581"
+}
