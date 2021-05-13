@@ -1,7 +1,7 @@
 const { confirmation } = require("reconlx");
 const Discord = require('discord.js');
 module.exports = async (bot, message, config) => {
-    if (message.channel.id === config.WhitelistConsole) {
+    if (message.channel.id === "835034616044716073") {
         if (message.author.bot) {
             if (message.content.includes('你還沒加白名單')) {
                 let RE = message.content.split("name=")[0]
