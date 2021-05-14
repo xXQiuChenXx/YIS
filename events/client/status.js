@@ -142,4 +142,5 @@ module.exports = async (bot) => {
         .setTitle("**发生错误: **" + e.message)
         .setDescription("```" + e.stack + "```")
         channel.send(embed)
+    }
 }
