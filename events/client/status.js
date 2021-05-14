@@ -7,6 +7,7 @@ const { stripIndents } = require("common-tags");
 const config = require("../../config.json")
 
 module.exports = async (bot) => {
+    try {
     const job = new CronJob('2 * * * * *', async function () {
         let days = 0;
         let week = 0;
@@ -135,4 +136,10 @@ module.exports = async (bot) => {
 
     }, null, true, 'Asia/Kuala_Lumpur');
     job.start();
+    } catch(e) {
+        const channel = bot.channels.cache.get("751885973557739581")
+        const embed = new Discord.MessageEmbed()
+        .setTitle("**发生错误: **" + e.message)
+        .setDescription("```" + e.stack + "```")
+        channel.send(embed)
 }
