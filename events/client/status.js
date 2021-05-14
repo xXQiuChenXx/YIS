@@ -9,6 +9,7 @@ const config = require("../../config.json")
 module.exports = async (bot) => {
     try {
     const job = new CronJob('2 * * * * *', async function () {
+        console.log("cron jobs")
         let days = 0;
         let week = 0;
         let uptime = ``;
