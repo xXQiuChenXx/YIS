@@ -138,10 +138,6 @@ module.exports = async (bot) => {
     }, null, true, 'Asia/Kuala_Lumpur');
     job.start();
     } catch(e) {
-        const channel = bot.channels.cache.get("751885973557739581")
-        const embed = new Discord.MessageEmbed()
-        .setTitle("**发生错误: **" + e.message)
-        .setDescription("```" + e.stack + "```")
-        channel.send(embed)
+        throw e
     }
 }
