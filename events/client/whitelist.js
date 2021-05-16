@@ -33,7 +33,7 @@ module.exports = async (bot, message, config) => {
             let BE = message.content.includes('(BE)')
             if (pe || win10 || be || PE || WIN10 || BE) {
                 let id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim().replace(" ", "_")
-                id = "*" + id2
+                id = "." + id2
                 Platform = "PE/BE/WIN10"
                 await Whitelist(id, Platform, message)
             } else {
