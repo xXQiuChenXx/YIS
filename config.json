@@ -1,6 +1,6 @@
 {
     "prefix": "&",
-    "command": "whitelist add %player%",
+    "command": "lp user %player% parent add player",
     "api": "https://api.xinrui.tk/",
     "BotChannel": "724030449717870634",
     "WhitelistChannel": "730751723437555714",

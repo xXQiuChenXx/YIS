@@ -1,7 +1,13 @@
 const { confirmation } = require("reconlx");
 const Discord = require('discord.js');
+const fetch = require("node-fetch")
 module.exports = async (bot, message, config) => {
-    if (message.channel.id === "835034616044716073") {
+    const headers = {
+        "user-agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36",
+          "token": process.env.api
+    };
+    /*if (message.channel.id === "835034616044716073") {
         if (message.author.bot) {
             if (message.content.includes('你還沒加白名單')) {
                 let RE = message.content.split("name=")[0]
@@ -9,7 +15,7 @@ module.exports = async (bot, message, config) => {
                 return bot.channels.cache.get(config.BotChannel).send(`**[系統]** 哎呀，發現了一隻迷失的小羊"**${NAME}**"，他忘了加白名欸..`)
             }
         }
-    }
+    }*/
     if (message.channel.id === config.WhitelistChannel) {
         let id
         let Platform
@@ -33,7 +39,15 @@ module.exports = async (bot, message, config) => {
             let BE = message.content.includes('(BE)')
             if (pe || win10 || be || PE || WIN10 || BE) {
                 let id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim().replace(" ", "_")
-                id = "." + id2
+                let xinrui;
+                let url = config.api + "xuid?gamertag=" + id2
+                try {
+                    xinrui = await fetch(url, { headers }).then(url => url.json())
+                    xinrui["uuid"]
+                } catch(e) {
+                    return message.reply("API系統出錯了，請稍後再試或等管理員通過")
+                }
+                id = xinrui["uuid"]
                 Platform = "PE/BE/WIN10"
                 await Whitelist(id, Platform, message)
             } else {
