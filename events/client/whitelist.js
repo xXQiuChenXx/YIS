@@ -22,6 +22,7 @@ module.exports = async (bot, message, config) => {
         if (message.author.bot) {
             return
         }
+        let id2;
 
         if (message.content.includes('MC ID') || message.content.includes('mc id')) {
             if (!message.content.includes("\n")) {
@@ -38,7 +39,7 @@ module.exports = async (bot, message, config) => {
             let WIN10 = message.content.includes('(WIN10)')
             let BE = message.content.includes('(BE)')
             if (pe || win10 || be || PE || WIN10 || BE) {
-                let id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim().replace(" ", "_")
+                id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim().replace(" ", "_")
                 let xinrui;
                 let url = config.api + "xuid?gamertag=" + id2
                 try {
@@ -57,6 +58,9 @@ module.exports = async (bot, message, config) => {
             }
         }
         async function Whitelist(id, Platform, message) {
+            if(Platform.includes("PE")) {
+                id = id2
+            }
             const embed = new Discord.MessageEmbed()
                 .setTitle(`**请確認**`)
                 .setDescription(`${message.author.toString()}你的MC ID是${id}，並且是${Platform}玩家\n✅代表正確 ❌代表錯誤`)
