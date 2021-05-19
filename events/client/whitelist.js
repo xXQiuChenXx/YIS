@@ -43,7 +43,7 @@ module.exports = async (bot, message, config) => {
                 let xinrui;
                 let url = config.api + "xuid?gamertag=" + id2
                 try {
-                    xinrui = await fetch(url, { headers }).then(url => url.json())
+                    xinrui = await fetch(encodeURI(url), { headers }).then(url => url.json())
                     xinrui["uuid"]
                 } catch(e) {
                     return message.reply("API系統出錯了，請稍後再試或等管理員通過")
