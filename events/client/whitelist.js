@@ -39,7 +39,7 @@ module.exports = async (bot, message, config) => {
             let WIN10 = message.content.includes('(WIN10)')
             let BE = message.content.includes('(BE)')
             if (pe || win10 || be || PE || WIN10 || BE) {
-                id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim().replace(" ", "_")
+                id2 = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").replace(/ *\([^)]*\) */g, "").trim()
                 let xinrui;
                 let url = config.api + "xuid?gamertag=" + id2
                 try {
