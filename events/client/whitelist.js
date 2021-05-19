@@ -58,6 +58,7 @@ module.exports = async (bot, message, config) => {
             }
         }
         async function Whitelist(id, Platform, message) {
+            let ID = id
             if(Platform.includes("PE")) {
                 id = id2
             }
@@ -67,7 +68,7 @@ module.exports = async (bot, message, config) => {
             message.channel.send(embed).then(async (msg) => {
                 const emoji = await confirmation(msg, message.author, ["✅", "❌"], 60000);
                 if (emoji === "✅") {
-                    let command = config.command.replace("%player%", id)
+                    let command = config.command.replace("%player%", ID)
                     await msg.delete()
                     await message.channel.send(`:tada: ${message.author.toString()}, 你的白名单申请已通过，记得来伺服器玩喔！`)
                     await message.react("👍")
