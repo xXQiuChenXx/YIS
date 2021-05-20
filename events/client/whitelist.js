@@ -70,10 +70,10 @@ module.exports = async (bot, message, config) => {
                 if (emoji === "✅") {
                     let command = config.command.replace("%player%", ID)
                     await msg.delete()
-                    await message.channel.send(`:tada: ${message.author.toString()}, 你的白名单申请已通过，记得来伺服器玩喔！`)
+                    await message.channel.send(`:tada: ${message.author.toString()}, 你獲得了玩家稱號/身份組，记得来伺服器玩喔！`)
                     await message.react("👍")
                     await bot.channels.cache.get(config.WhitelistConsole).send(command)
-                    await message.channel.send("MC ID ：(如是pe,be, win10請括號註明)\nDC ：\n自介：(可留空\n*複製填寫此信息可自動白名")
+                    await message.channel.send("MC ID ：(如是pe,be, win10請括號註明)\nDC ：\n自介：(可留空\n*複製填寫此信息可自動获得了玩家稱號/身份组")
                 }
                 if (emoji === "❌") {
                     msg.delete()
