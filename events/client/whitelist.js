@@ -44,7 +44,7 @@ module.exports = async (bot, message, config) => {
                 .setTitle(`**请確認**`)
                 .setDescription(`${message.author.toString()}你的MC ID是${id}\n1️⃣代表Java或電腦版玩家 2️⃣代表Pe,Be,Win10或是手機版 ❌代表ID錯誤`)
             message.channel.send(embed).then(async (msg) => {
-                const emoji = await confirmation(msg, message.author, ["1️⃣", "2️⃣", "❌"], 60000);
+                const emoji = await confirmation(msg, message.author, ["1️⃣", "❌"], 60000);
                 if (emoji === "1️⃣") {
                     let command = config.command.replace("%player%", id)
                     await msg.delete()
