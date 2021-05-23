@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const config = require('./config.json')
 const prefix = config.prefix;
+require("discord-reply")
 const bot = new Discord.Client({disableMentions:'everyone'});
 bot.prefix = prefix;
 bot.commands = new Discord.Collection();
@@ -23,7 +24,7 @@ bot.on('message',async message=>{
     require('./events/guild/message')(bot,message,config)
 })
 bot.on('message',async message=>{
-    require('./events/client/whitelist')(bot,message,config)
+    require('./events/client/permission')(bot,message,config)
 })
 bot.on("ready", () => {
     bot.user.setActivity("創造建築伺服器");
