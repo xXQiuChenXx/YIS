@@ -14,7 +14,7 @@ module.exports = async (bot, message, config) => {
             return
         }
         //检测信息内容
-        if (message.content.includes('MC ID') || message.content.includes('mc id') || message.content.includes('mcid')) {
+        if (message.content.includes('MC ID') || message.content.includes('mc id') || message.content.includes('mcid') || message.content.includes('MCID')) {
             //检测是否格式正确
             if (!message.content.includes("\n")) {
                 message.react("❓")
