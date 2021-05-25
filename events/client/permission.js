@@ -31,7 +31,20 @@ module.exports = async (bot, message, config) => {
                 return message.reply("格式錯誤...")
             }
             //玩家ID
-            let id = message.content.split("\n")[0].replace("MC ID", "").replace("mc id", "").replace("：", "").replace(":", "").trim()
+            let id;
+            if(message.content.includes(':')) {
+                id = message.content.split("\n")[0].split(":")[1]
+            }
+            if(message.content.includes('：')) {
+                id = message.content.split("\n")[0].split("：")[1]
+            }
+            //message.content.split("\n")[0]
+            //.replace("MC ID", "")
+            //.replace("MCID", "")
+            //.replace("mc id", "")
+            //.replace("：", "")
+            //.replace(":", "")
+            //.trim()
             //确认信息
             const embed = new Discord.MessageEmbed()
             .setTitle(`你的ID是 **"${id}"**, 請確認`)
