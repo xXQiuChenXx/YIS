@@ -31,12 +31,12 @@ module.exports = async (bot, message, config) => {
                 return message.reply("格式錯誤...")
             }
             //玩家ID
-            let id = ""
-            if(message.content.includes(':')) {
-                id = message.content.split("\n")[0].split(":")[1]
+            let id = message.content.split("\n")[0]
+            if(id.includes(':')) {
+                id = id.split(":")[1]
             }
-            if(message.content.includes('：')) {
-                id = message.content.split("\n")[0].split("：")[1]
+            if(id.includes('：')) {
+                id = id.split("：")[1]
             }
             //message.content.split("\n")[0]
             //.replace("MC ID", "")
