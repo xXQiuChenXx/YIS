@@ -10,8 +10,9 @@ module.exports = {
         let name = args.join(" ");
         let google = process.env.youtube
         if (!name) return message.channel.send("未知頻道錯誤.");
+        let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${name}&key=${google}&maxResults=1&type=channel`
 
-        const channel = await fetch.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${name}&key=${google}&maxResults=1&type=channel`)
+        const channel = await fetch.get(encodeURI(url))
             .catch(() => message.channel.send("未知頻道錯誤."));
 
         if (!channel.body.items[0]) return message.channel.send("沒有頻道搜索結果");
