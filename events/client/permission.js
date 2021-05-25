@@ -31,7 +31,7 @@ module.exports = async (bot, message, config) => {
                 return message.reply("格式錯誤...")
             }
             //玩家ID
-            let id;
+            let id = ""
             if(message.content.includes(':')) {
                 id = message.content.split("\n")[0].split(":")[1]
             }
