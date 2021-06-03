@@ -33,10 +33,10 @@ module.exports = async (bot, message, config) => {
             //玩家ID
             let id = message.content.split("\n")[0]
             if(id.includes(':')) {
-                id = id.split(":")[1]
+                id = id.split(":")[1].trim()
             }
             if(id.includes('：')) {
-                id = id.split("：")[1]
+                id = id.split("：")[1].trim()
             }
             //message.content.split("\n")[0]
             //.replace("MC ID", "")
